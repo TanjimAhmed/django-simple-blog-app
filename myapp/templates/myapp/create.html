@@ -1,0 +1,19 @@
+{% extends 'myapp/main.html' %}
+{% load static %}
+
+{% block content %}
+ <h1>{{text}}</h1>
+ <p>
+   user: {{user.id}}
+   author: {{user.author.id}}
+ </p>
+
+
+
+ <form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    
+    <input class="btn btn-outline-primary" type="submit" value="Submit">
+ </form>
+{% endblock %}

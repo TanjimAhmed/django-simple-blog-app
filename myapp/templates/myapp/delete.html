@@ -1,0 +1,10 @@
+{% extends 'myapp/main.html' %}
+
+    {% block content %}
+    <h1>Are you sure you want to delete "{{blog.title}}"?</h1>
+    <form action="{% url 'delete_blog' blog.id %}" method="POST">
+        {% csrf_token %}
+        <a class="btn btn-info" href="{% url 'home' %}">Cancel</a>
+        <input class="btn btn-danger mx-5" type="submit" value="Confirm">
+    </form>
+    {% endblock %}

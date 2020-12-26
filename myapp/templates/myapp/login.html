@@ -1,0 +1,30 @@
+{% extends 'myapp/main.html' %}
+{% load static %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <h1 class="my-5 text-center">User Login</h1>
+        <form action="" method="POST">
+            {% csrf_token %}
+                <div class="form-group">
+                    <label for="Name">Username</label>
+                    <input type="username" placeholder="username" class="form-control" name="username">
+                </div>
+                <div class="form-group">
+                    <label for="Password">Password</label>
+                    <input type="password" class="form-control" name="password">
+                </div>
+                
+            <input class="btn btn-outline-primary btn-block" type="submit" value="Login">
+            {% if messages %}
+                {% for message in messages %}
+                <p class="card-header">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            <p class="text-center my-3"> Not an user <a href="{% url 'register' %}">Sign Up</a></p>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
